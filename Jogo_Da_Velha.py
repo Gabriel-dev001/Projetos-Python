@@ -14,7 +14,6 @@ class Jogo_velha():
 
     def Tabela(self):
         Limpa()
-
         print("    1    2    3")
         print("1",linha_1)
         print("2",linha_2)
@@ -43,14 +42,10 @@ class Jogo_velha():
 
     def Ganhador(self):
          print(f"O jogador |{self.sinal}| Ganhou o jogo!!!")
-
-             
+    
 bolinha = Jogo_velha("O")
 xzinho = Jogo_velha("X")
-
-
         
-            
 def Verificar_ganhador(elemento):
     if linha_1[0] == elemento and linha_1[1] == elemento and linha_1[2] == elemento:
             return False
@@ -108,11 +103,4 @@ def Jogo():
             jogador.Ganhador()
             break
  
-Jogo()
-
-
-
-
-
-
-        
+Jogo() 
