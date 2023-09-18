@@ -8,7 +8,8 @@ DATA_NASCIMENTO = []
 CPF = []
 SEXO = []
 
-def Limpa(): # DEF PARA LIMPAR O CONSOLE NA P/ ESCONDER A VARIAVEL{BIBLIOTECA OS}
+#Função responsavel por limpar o console
+def Limpa():
      if os.name == 'nt': 
         _ = os.system('cls')
 
@@ -31,11 +32,7 @@ def Menu():
             Cadastrar_Clientes()
 
         case "2":
-            print(NOME)
-            print(DATA_NASCIMENTO)
-            print(CPF)
-            print(SEXO)
-            Voltar_Menu()
+           Lista_Clientes()
 
         case __:
             Menu()
@@ -133,6 +130,33 @@ def Cadastro_Sexo():
     SEXO.append(sexo)
 
     return sexo
+
+
+#2.0 Essa é a função principal da Lista dos clientes, nela vamos chamar as complementares
+def Lista_Clientes():
+    print("Esses sao todos seus clientes !!!")
+
+    for i in range(len(NOME)):
+        print(f"{i+1} - {NOME[i]}")
+
+    escolha = str(input())
+
+    if escolha == "":
+        Voltar_Menu()
+
+    if int(escolha)<1 or int(escolha)>len(NOME):
+        print("Erro!!!")
+        Voltar_Menu()
+    else:
+        Ver_Cliente(escolha)
+
+        
+
+#2.1 Sera responsavel por printar os dados especificos dos clientes.
+def Ver_Cliente(cliente):
+
+    print(f"{NOME[int(cliente)-1]}:\n\t{CPF[int(cliente)-1]}\n\t{DATA_NASCIMENTO[int(cliente)-1]}\n\t{SEXO[int(cliente)-1]}")
+
 
 
 
