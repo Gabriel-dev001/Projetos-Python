@@ -13,11 +13,13 @@ def Limpa():
      if os.name == 'nt': 
         _ = os.system('cls')
 
+
 #Responsavel por abrir a função Menu
 def Voltar_Menu():
     voltar = input("Prescione para volatar pro menu: ")
     Limpa()
     Menu()
+
 
 #Menu para direcionar para as opções do programa
 def Menu():
@@ -36,6 +38,7 @@ def Menu():
 
         case __:
             Menu()
+
 
 #1.0 Essa é a função principal do cadastro, nela vamos chamar as complementares
 def Cadastrar_Clientes():
@@ -69,12 +72,14 @@ def Cadastrar_Clientes():
     Limpa()
     Voltar_Menu()
 
+
 #1.1 Responsavel por receber o nome e salvar no vetor.
 def Cadastro_nome():
     nome = str(input("Nome completo: "))
     NOME.append(nome)
 
     return nome
+
 
 #1.2 responsavel por receber a data de nascimento, e calcular a idade.
 def Cadastro_Idade():
@@ -93,6 +98,7 @@ def Cadastro_Idade():
     
     return int(idade)
 
+
 #1.2.1 Recebe uma Str no formato(dia-mês-ano), e Retorna um tipo composto operavel.
 def Formatar_Data(data_pura):
     data_pura_separada = data_pura.split("-")
@@ -100,9 +106,10 @@ def Formatar_Data(data_pura):
     mes_nascimento = int(data_pura_separada[1])
     ano_nascimento = int(data_pura_separada[2])
 
-    data_formatadata = dt.date(int(ano_nascimento), int(mes_nascimento), int(dia_nascimento))
+    data_formatadata = dt.date(ano_nascimento, mes_nascimento, dia_nascimento)
 
     return data_formatadata
+
 
 #1.3 Responsavel por receber, validar a quantidade de caracters e salvar no vetor.
 def Cadastro_Cpf():
@@ -114,6 +121,7 @@ def Cadastro_Cpf():
     CPF.append(cpf)
 
     return cpf
+
 
 #1.4 Responsavel por receber, e salvar o sexo do cliente no vetor.
 def Cadastro_Sexo():
@@ -146,18 +154,20 @@ def Lista_Clientes():
 
     if int(escolha)<1 or int(escolha)>len(NOME):
         print("Erro!!!")
-        Voltar_Menu()
     else:
         Ver_Cliente(escolha)
 
+    Voltar_Menu()
         
 
 #2.1 Sera responsavel por printar os dados especificos dos clientes.
 def Ver_Cliente(cliente):
+    Limpa()
 
-    print(f"{NOME[int(cliente)-1]}:\n\t{CPF[int(cliente)-1]}\n\t{DATA_NASCIMENTO[int(cliente)-1]}\n\t{SEXO[int(cliente)-1]}")
-
-
+    print(f"{NOME[int(cliente)-1]}")
+    print(f"\tCPF:{CPF[int(cliente)-1]}")
+    print(f"\tIdade:{DATA_NASCIMENTO[int(cliente)-1]}")
+    print(f"\tGenero:{SEXO[int(cliente)-1]}")
 
 
 Menu()
