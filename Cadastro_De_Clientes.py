@@ -42,6 +42,8 @@ def Menu():
 
 #1.0 Essa é a função principal do cadastro, nela vamos chamar as complementares
 def Cadastrar_Clientes():
+    cliente = []
+
     print("Vamos cadastrar um novo Cliente !!!")
 
     nome_cliente = Cadastro_nome()
@@ -67,9 +69,8 @@ def Cadastrar_Clientes():
     print(f"Genero: {sexo_cliente}")
 
     print("Cliente Adcionado com Sucesso !!!")
-    voltar = input()
+    voltar = input()      
 
-    Limpa()
     Voltar_Menu()
 
 
@@ -155,7 +156,7 @@ def Lista_Clientes():
     if int(escolha)<1 or int(escolha)>len(NOME):
         print("Erro!!!")
     else:
-        Ver_Cliente(escolha)
+        Ver_Cliente(int(escolha)-1)
 
     Voltar_Menu()
         
